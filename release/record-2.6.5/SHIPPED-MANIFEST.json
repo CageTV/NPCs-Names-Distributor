@@ -1,0 +1,43 @@
+{
+  "version": "2.6.5",
+  "package": "NPCs Name Distribution Re-NG 2.6.5.zip",
+  "package_sha256": "936269e66719f286c19c1c110125a400064540c74da7ee23b73b85d6d67a1a39",
+  "files": [
+    {
+      "path": "README.txt",
+      "sha256": "eab9a5356dd0c208eb69c4215b71c236a0135c3d066023094d2f906cc7929ffa",
+      "size": 920,
+      "status": "shipped"
+    },
+    {
+      "path": "CHANGES.txt",
+      "sha256": "24542f019221d79ba90d2b77608441c095493571073d588c004e1f9a661cc215",
+      "size": 1802,
+      "status": "shipped"
+    },
+    {
+      "path": "NPCs Names Distributor_DISTR.ini",
+      "sha256": "ee85e2f766ef3a93a324ad54912c15b90dbb61959eefa2b8ccefcba71cd2e8f7",
+      "size": 21859,
+      "status": "shipped"
+    },
+    {
+      "path": "SKSE/Plugins/NPCsNamesDistributor.dll",
+      "sha256": "e365029ebe2ab89d715c528558027657cd8cbbdf637142f50b65417ffdebb41b",
+      "size": 1439232,
+      "status": "shipped"
+    },
+    {
+      "path": "SKSE/Plugins/NPCsNamesDistributor-LICENSE.txt",
+      "sha256": "4d3e484b968368a852c26842b8f57f3c757c96de01194119603ec9b591d2c8d7",
+      "size": 35560,
+      "status": "shipped"
+    },
+    {
+      "path": "SKSE/Plugins/NPCsNamesDistributor-THIRD-PARTY.txt",
+      "sha256": "f838cae0bde334cf71b848ce53cb5b5d1ae404f9e56fe66380b9b22254c2596b",
+      "size": 1605,
+      "status": "shipped"
+    }
+  ]
+}

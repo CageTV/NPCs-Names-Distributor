@@ -1,0 +1,22 @@
+NPCs Name Distribution Re-NG - notices
+
+Source code: https://github.com/CageTV/NPCs-Names-Distributor (branch main, tags ending in -ReNG)
+
+ORIGINAL WORK
+NPCs Names Distributor is by sasnikol (GitHub: adya), https://github.com/adya/NPCs-Names-Distributor, licensed GPL-3.0.
+Nexus: https://www.nexusmods.com/skyrimspecialedition/mods/73081
+This fork keeps the original copyright and license. Changes are listed in CHANGES-Re-NG.md; modifications by CageTV, 2026.
+A 2024 conversion of the project to CommonLibSSE-NG by FlayaN (https://github.com/FlayaN/NPCs-Names-Distributor-NG, MIT) is not used.
+
+LICENSE
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as
+published by the Free Software Foundation. It is distributed WITHOUT ANY WARRANTY. The full text is in LICENSE.
+
+THIRD-PARTY COMPONENTS LINKED INTO THE DLL
+- CommonLibSSE-NG (fork by adya, branch ng; upstream alandtse/powerof3): GPL-3.0-or-later with the Modding Exception and GPL-3.0 Linking Exception.
+- CLibUtil by powerof3: MIT.
+- SKSE Menu Framework API header (https://github.com/QTR-Modding/SKSE-MCP): see that project for its terms.
+- SKSE64 plugin interfaces are used through CommonLibSSE-NG; SKSE is by the SKSE team.
+- Boost.STL_interfaces: BSL-1.0. rsm-binary-io: MIT. spdlog: MIT. fmt: MIT. xbyak: BSD-3-Clause. nlohmann-json: MIT. DirectXTK: MIT.
+  rapidcsv: BSD-3-Clause.
+- crc32 by Stephan Brumme (src/crc32.cpp, src/crc32.h): Copyright (c) 2011-2019 Stephan Brumme; terms are those in the disclaimer referenced in those files.

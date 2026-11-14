@@ -1,0 +1,29 @@
+[size=5][b]NPCs Name Distribution Re-NG[/b][/size]
+
+A maintained fork of [url=https://www.nexusmods.com/skyrimspecialedition/mods/73081]NPCs Names Distributor[/url] by sasnikol (adya). It generates names and titles and distributes them to any NPCs from any mods using SPID, with obscured names that NPCs reveal when you talk to them.
+
+[b]This is a drop-in replacement.[/b] The DLL is still NPCsNamesDistributor.dll and the save format, INI options, _DISTR files, name packs and API are unchanged, so existing saves and every mod that talks to NND keep working. It replaces the original: do not install both.
+
+[size=4][b]What is different from 2.6.4[/b][/size]
+[list]
+[*]Fixed a possible crash on actors that have no ActorBase (read unguarded in log messages on every new NPC and on every save load).
+[*]Fixed "Necromancer" in the Creation Club (Pet Black Wolf) entry matching every NPC named Necromancer, such as the Skyrim.esm cultist.
+[*]All hooked code addresses were verified against the Skyrim 1.7.104 executable.
+[/list]
+
+[size=4][b]Requirements[/b][/size]
+[list]
+[*]SKSE64 and Address Library for SKSE Plugins
+[*]Spell Perk Item Distributor (SPID) 6 or newer
+[*]A names pack (see the original page for the available ones)
+[*]SKSE Menu Framework (optional, in-game menu)
+[/list]
+
+[size=4][b]Install[/b][/size]
+Install with your mod manager and let it overwrite NPCs Names Distributor. Existing saves keep their generated names. Built for Skyrim SE, AE and 1.7.x. VR support is carried over from upstream and has not been tested here.
+
+[size=4][b]Credits[/b][/size]
+NPCs Names Distributor by sasnikol (adya). CommonLibSSE-NG by alandtse, powerof3 and contributors. Third-party notices are in the download.
+
+[size=4][b]Source[/b][/size]
+[url=https://github.com/CageTV/NPCs-Names-Distributor]https://github.com/CageTV/NPCs-Names-Distributor[/url]

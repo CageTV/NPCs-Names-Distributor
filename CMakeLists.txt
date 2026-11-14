@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 set(NAME "NPCsNamesDistributor" CACHE STRING "")
-set(VERSION 2.6.4 CACHE STRING "")
+set(VERSION 2.6.5 CACHE STRING "")
 
 # ---- Options ----
 

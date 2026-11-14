@@ -1,4 +1,4 @@
-# NPCs Name Distribution Re-NG - changes over upstream 2.6.4
+# NPCs Name Distribution Re-NG 2.6.5 - changes over upstream 2.6.4
 
 Fork of [adya/NPCs-Names-Distributor](https://github.com/adya/NPCs-Names-Distributor) (GPL-3.0). Drop-in replacement: same DLL name
 (`NPCsNamesDistributor.dll`), same API, same save record format, same INI and `_DISTR` files.
@@ -12,7 +12,7 @@ Skyrim 1.7.x and VR support, so that fork is behind it.
   Also guarded `GetRace()` / `GetActorBase()` in the default obscurity name and in the Name Fixer.
 - **`NNDNotUnique|Necromancer` false positives** (upstream issue #57). The bare string matched every NPC named "Necromancer" and any NPC
   carrying a keyword of that name. It is now `NNDNotUnique||ccBGSSSE036_Necromancer` (EditorID in the Form filter).
-- `vcpkg.json` declared `MIT` while the project is GPL-3.0; corrected to `GPL-3.0-only`.
+- License metadata said MIT (`vcpkg.json`, and the copyright field embedded in the DLL) while the project is GPL-3.0; corrected.
 
 ## Checked, no change needed
 - Upstream issue #40 (empty `sFormat`) is already handled in `Options.cpp`.
