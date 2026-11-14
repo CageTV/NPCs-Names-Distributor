@@ -64,9 +64,11 @@ namespace NND
 
 		void NNDData::UpdateDefaultObscurityName(const RE::Actor* actor) {
 			if (Name formattedObscurityName{ Options::Obscurity::defaultName }; formattedObscurityName != empty) {
-				const Name race = actor->GetRace()->GetFullName();
+				const auto raceForm = actor->GetRace();
+				const Name race = raceForm ? raceForm->GetFullName() : "";
+				const auto actorBase = actor->GetActorBase();
 				Name       sex;
-				switch (actor->GetActorBase()->GetSex()) {
+				switch (actorBase ? actorBase->GetSex() : RE::SEX::kNone) {
 				case RE::SEX::kMale:
 					sex = "Male";
 					break;
@@ -329,7 +331,7 @@ namespace NND
 					if (data.isObscured && actor->IsCommandedActor() && actor->GetCommandingActor().get() == RE::PlayerCharacter::GetSingleton()) {
 						data.isObscured = false;
 						NND::UpdateCrosshairs();
-						logger::debug("Revealing [0x{:X}] ('{}') who is now a minion", actor->formID, data.name != empty ? data.displayName : actor->GetActorBase()->GetName());
+						logger::debug("Revealing [0x{:X}] ('{}') who is now a minion", actor->formID, data.name != empty ? data.displayName : SafeBaseName(actor));
 					}
 
 					return data.GetName(style, actor);
@@ -337,7 +339,7 @@ namespace NND
 			}
 
 			if (Persistency::Manager::GetSingleton()->IsLoadingGame()) {
-				logger::debug("Pre-cached name for [0x{:X}] ('{}') not found. Deferred: game is loading.", actor->formID, actor->GetActorBase()->GetName());
+				logger::debug("Pre-cached name for [0x{:X}] ('{}') not found. Deferred: game is loading.", actor->formID, SafeBaseName(actor));
 				return empty;
 			}
 
@@ -365,7 +367,7 @@ namespace NND
 				WriteLocker lock(_lock);
 				if (names.contains(actor->formID)) {
 					auto& data = names.at(actor->formID);
-					logger::debug("An old actor touches the NND: [0x{:X}] ('{}'):", actor->formID, actor->GetActorBase()->GetName());
+					logger::debug("An old actor touches the NND: [0x{:X}] ('{}'):", actor->formID, SafeBaseName(actor));
 					UpdateDataFlags(data, actor);
 					data.UpdateDisplayName(actor);
 					data.UpdateDefaultObscurityName(actor);
@@ -382,7 +384,7 @@ namespace NND
 					return data;
 				}
 			}
-			logger::debug("A new actor touches the NND: [0x{:X}] ('{}'):", actor->formID, actor->GetActorBase()->GetName());
+			logger::debug("A new actor touches the NND: [0x{:X}] ('{}'):", actor->formID, SafeBaseName(actor));
 			const auto startTime = std::chrono::steady_clock::now();
 
 			NNDData data{};
@@ -414,7 +416,7 @@ namespace NND
 			logger::debug("\tDisplayName: '{}'", data.displayName);
 			logger::debug("\tDuration: {} ms", duration);
 			if (data.name != empty)
-				logger::info("Generated name '{}, {} data' for [0x{:X}] ('{}') in {} ms", data.name, data.title, actor->formID, actor->GetActorBase()->GetName(), duration);
+				logger::info("Generated name '{}, {} data' for [0x{:X}] ('{}') in {} ms", data.name, data.title, actor->formID, SafeBaseName(actor), duration);
 			return SetData(data);
 		}
 
@@ -423,7 +425,7 @@ namespace NND
 			if (names.contains(actor->formID)) {
 				const NNDData data = names.at(actor->formID);
 				if (names.erase(actor->formID))
-					logger::debug("Deleted cache for [0x{:X}] ('{}')", actor->formID, data.name != empty ? data.displayName : actor->GetActorBase()->GetFullName());
+					logger::debug("Deleted cache for [0x{:X}] ('{}')", actor->formID, data.name != empty ? data.displayName : SafeBaseName(actor));
 			}
 		}
 
@@ -431,7 +433,7 @@ namespace NND
 			WriteLocker lock(_lock);
 			if (const auto& it = names.find(actor->formID); it != names.end() && it->second.isObscured) {
 				it->second.isObscured = false;
-				logger::debug("Revealing [0x{:X}] ('{}')", actor->formID, it->second.name != empty ? it->second.name : actor->GetActorBase()->GetName());
+				logger::debug("Revealing [0x{:X}] ('{}')", actor->formID, it->second.name != empty ? it->second.name : SafeBaseName(actor));
 				return true;
 			}
 

@@ -5,6 +5,19 @@
 
 namespace NND
 {
+	/// Name of the actor's base record for log messages. Never dereferences a missing ActorBase (an actor can have none),
+	/// which matters because log arguments are evaluated whatever the log level is.
+	inline const char* SafeBaseName(const RE::Actor* a_actor) {
+		if (a_actor) {
+			if (const auto base = a_actor->GetActorBase()) {
+				if (const auto name = base->GetName()) {
+					return name;
+				}
+			}
+		}
+		return "";
+	}
+
 	namespace Naming::Default
 	{
 		/// Returns the original name that GetDisplayFullName would return.

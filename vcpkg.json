@@ -3,7 +3,7 @@
   "version-string": "2.6.4",
   "description": "Framework that allows customizable names distribution",
   "homepage": "https://github.com/adya/NPCs-Names-Distributor",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "builtin-baseline": "ee12231b20c95013c6638d845d04c91559a1d1ff",
   "dependencies": [
     "boost-stl-interfaces",
